@@ -47,13 +47,20 @@ import java.util.logging.Logger;
  *
  * @author alejandro
  */
-public class Prueba extends javax.swing.JFrame {
+public class QR extends javax.swing.JFrame {
 
+    public void getUserName()
+    {
+       //String username = System.getProperty("user.home");
+        String username = System.getProperty("user.name");
+        System.out.println(username);
+    }
     /**
      * Creates new form Prueba
      */
-    public Prueba() {
+    public QR() {
         initComponents();
+        getUserName();
     }
     
     
@@ -99,6 +106,7 @@ public class Prueba extends javax.swing.JFrame {
         btnQR = new javax.swing.JButton();
         txtQR = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        txtNameQR = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,10 +126,13 @@ public class Prueba extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtQR, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnQR))
-                    .addComponent(jLabel1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(txtNameQR, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnQR))
+                        .addComponent(txtQR, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -132,7 +143,9 @@ public class Prueba extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtQR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnQR)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNameQR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQR))
                 .addContainerGap(159, Short.MAX_VALUE))
         );
 
@@ -143,8 +156,12 @@ public class Prueba extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             String qrcodetext = txtQR.getText();
+            String qrname = txtNameQR.getText();
             
-            String filepath = "/Users/alejandro/NetBeansProjects/QRGenerator/qrCode.png";
+            String username = System.getProperty("user.name");
+            
+            //String filepath = "/Users/alejandro/NetBeansProjects/QRGenerator/qrCode.png";
+            String filepath = "/Users/"+username+"/Desktop/"+qrname+".png";
             //String filePath = "/Users/<userName>/Documents/CrunchifyQR.png";
             //String filepath = "/Users/jajasaludos.png";
             
@@ -168,9 +185,9 @@ public class Prueba extends javax.swing.JFrame {
             d.open(new File(archivo));
             
         } catch (WriterException ex) {
-            Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QR.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QR.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnQRActionPerformed
 
@@ -185,26 +202,27 @@ public class Prueba extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Prueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Prueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Prueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Prueba.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QR.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Prueba().setVisible(true);
+                new QR().setVisible(true);
             }
         });
     }
@@ -212,6 +230,7 @@ public class Prueba extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQR;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtNameQR;
     private javax.swing.JTextField txtQR;
     // End of variables declaration//GEN-END:variables
 }

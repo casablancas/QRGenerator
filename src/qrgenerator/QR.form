@@ -26,11 +26,15 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="txtQR" alignment="1" min="-2" pref="245" max="-2" attributes="0"/>
-                      <Component id="btnQR" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="txtNameQR" min="-2" pref="125" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnQR" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="txtQR" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="131" max="32767" attributes="0"/>
           </Group>
@@ -44,7 +48,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="txtQR" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnQR" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtNameQR" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnQR" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="159" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -65,6 +72,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Escribe el texto para generar el c&#xf3;digo QR"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNameQR">
     </Component>
   </SubComponents>
 </Form>
